@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+  <html>
+    <!-- Jackelyn Trivino
+         September 20, 2012
+         Project 2 - My First Text Adventure game-->
+    <head>
+      <title>Doctor Who Time Adventure</title>
+           <style>
+                 body {background-color:blue}
+                 h2{font-weight: bold; color:white}
+                 .jackie {font-style:italic; color:red}
+           </style>
+      
+       <script type="text/JavaScript">
+       
+       var score= 0;
+       var directions= {"north","south","east","west"};
+       var north= false;
+       var south= false;
+       var east= false;
+       var west= false;
+       var southwest= false;
+       
+       function btn_north_click () {      
+          var msg="You are facing a spaceship full of Daleks!!!"
+          updateText(msg);
+          if (north===false){		
+             score = score + 5;              
+             north = true;
+          }
+          //alert(msg);
+       }
+            
+           
+       function btn_south_click () {
+           var msg="You are facing the Tardis door!"
+           updateText(msg);
+           if (south===false){		
+             score = score + 5;              
+             south = true;
+          }
+          //alert=(msg);
+       } 
+
+       
+       function btn_east_click () {
+          var msg="There is a blackhole!"
+          updateText(msg);
+          if (east===false){		
+             score = score + 5;              
+             east = true;
+          }
+          //alert=(msg);
+       } 
+       
+       function btn_west_click() {
+          var msg="You are facing a troop of cyberman! "
+          updateText(msg);
+          if (west===false){
+             score = score + 5;
+             west = true;
+          }
+          //alert=(msg);
+       } 
+
+       funtion btn_southwest_click () {
+           var msg= "You are regenerating."
+           updateText(msg);
+           if (southwest===false){
+            score = score + 5;
+            southwest = true;
+          }
+          //alert=(msg);
+        } 
+
+        function btn_score_click() {
+             var msg= score
+             alert(msg);     
+       }  
+
+       
+       function updateText(msg){
+           var ta = document.getElementById("taGame");
+           ta.value = msg + "\n" + ta.value;
+       }
+
+       function updateDisplay(msg){
+           msg + msg "
+
+       
+      </script>
+  </head>
+  <body>
+      Doctor Who Text Adventure Games 
+      <br>
+      <textarea id="taGame" rows="8" cols="50">You are outside of the Tardis with the 10th Doctor. You are his faithful companion but are surrounded by alien enemies!</textarea>
+
+      
+      
+      <br>
+        <input type ="button" 
+             value="North" 
+             onclick="btn_north_click ();"> 
+      
+        <input type ="button" 
+             value="south" 
+             onclick="btn_south_click();">
+
+        <input type ="button" 
+             value="east" 
+             onclick="btn_east_click();">
+
+        <input type ="button" 
+             value="west" 
+             onclick="btn_west_click();">
+ 
+        <input type= "button";
+             value="south west"
+             onclick="btn_southwest_click();">
+       
+        <input type= "button";
+             value="points"
+             onclick="btn_score_click();">
+
+
+
+      <br>  
+       <a href= "mailto:jackelyn.trivino@gmail.com" style="color: #000000">E-mail Link</a>
+    
+      
+      <br>
+      <a href="http://validator.w3.org/#validate_by_input" style="color: #000000">Validate</a>
+
+    </body>
+ </html>
