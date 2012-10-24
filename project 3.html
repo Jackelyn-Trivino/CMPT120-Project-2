@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+  <html>
+    <!-- Jackelyn Trivino
+         September 20, 2012
+         Project 2 - My First Text Adventure game-->
+    <head>
+      <title>Doctor Who Time Adventure</title>
+           <style>
+                 body {background-color:blue}
+                 h2{font-weight: bold; color:white}
+                 .jackie {font-style:italic; color:red}
+           </style>
+      
+       <script type="text/JavaScript">
+       
+       var score= 0;
+       var currentLocation=0;
+       //var north= false;
+       //var south= false;
+       //var east= false;
+       //var west= false;
+       var locationArray = new Array();
+       locationArray[0] = 0;
+       
+       var blocked="You can't go this way!";
+        
+        function btn_go_click()
+        {
+            //alert("go");
+            var input = document.getElementById("input").value;
+            input = input.toLowerCase();
+            if(input=="north" || input=="south" || input=="east" || input=="west" || input=="n" || input=="s" || input=="e" || input=="w")  //TODO: add other commands (n,s,e,w)
+            {
+                //alert(input);
+                processLocation(input);
+            }
+        }
+        
+        function processLocation(direction)
+        {
+            //alert(direction)
+            if (direction=="north" || direction=="n")
+            {
+                if(currentLocation==0)
+                {
+                    enable_buttons();
+                    currentLocation=1;
+                    locationMessages();
+                    var northButton=document.getElementById("north_button");
+                    northButton.disabled="disabled";
+                    var eastButton=document.getElementById("east_button");
+                    eastButton.disabled="disabled";
+                    var westButton=document.getElementById("west_button");
+                    westButton.disabled="disabled";
+                    
+                }
+                else if (currentLocation==4)
+                {
+                    enable_buttons();
+                    currentLocation=0;
+                    locationMessages();
+                }
+                else
+                {
+                    updateDisplay(blocked);
+                }
+            }
+            else if(direction=="south" || direction=="s")
+            {
+                if(currentLocation==0)
+                {
+                     enable_buttons();
+                     currentLocation=4;
+                     locationMessages();
+                     var southButton=document.getElementById("south_button");
+                     southButton.disabled="disabled";
+                     var eastButton=document.getElementById("east_button");
+                     eastButton.disabled="disabled";
+                     //disable east
+                }
+                else if(currentLocation==1)
+                {
+                    enable_buttons();
+                     currentLocation=0;
+                     locationMessages();
+                     
+                }     
+                else
+                {
+                     updateDisplay(blocked);
+                }
+            }
+            
+            else if(direction=="east" || direction=="e")
+            {
+                if (currentLocation==0)
+                {
+                     enable_buttons();
+                     currentLocation=2;
+                     locationMessages();
+                     var northButton=document.getElementById("north_button");
+                     northButton.disabled="disabled";
+                     var southButton=document.getElementById("south_button");
+                     southButton.disabled="disabled";
+                     var eastButton=document.getElementById("east_button");
+                     eastButton.disabled="disabled";
+                     //
+                }    
+                else if(currentLocation==5)
+                {
+                     enable_buttons();
+                     currentLocation=4;
+                     locationMessages();
+                     var southButton=document.getElementById("south_button");
+                     southButton.disabled="disabled";
+                     var eastButton=document.getElementById("east_button");
+                     eastButton.disabled="disabled";
+                }     
+                else if (currentLocation==3)  
+               {
+                     enable_buttons();
+                     currentLocation=0;
+                     locationMessages();
+                     
+                }      
+                else
+                {
+                     updateDisplay(blocked);
+            }
+            }
+            else if(direction=="west" || direction=="w")
+            {
+            if (currentLocation==0)
+                {
+                     alert(direction);
+                     enable_buttons();
+                     currentLocation=3;
+                     locationMessages();
+                     var westButton=document.getElementById("west_button");
+                     westButton.disabled="disabled";
+                     var northButton=document.getElementById("north_button");
+                     northButton.disabled="disabled";
+                     var southButton=document.getElementById("south_button");
+                     southButton.disabled="disabled";
+                  }   //
+            else if (currentLocation==4)
+                {
+                     enable_buttons();
+                     currentLocation=5
+                     locationMessages();
+                     var westButton=document.getElementById("west_button");
+                     westButton.disabled="disabled";
+                     var northButton=document.getElementById("north_button");
+                     northButton.disabled="disabled";
+                     var southButton=document.getElementById("south_button");
+                     southButton.disabled="disabled"; 
+                     }
+            else if (currentLocation==2)
+                {
+                     enable_buttons();
+                     currentLocation=0
+                     locationMessages();
+                                     
+                }     
+                else
+                {
+                     updateDisplay(blocked);
+                }
+           }
+            
+            //locationMessages();
+            checkScore();
+            
+        }
+        
+        function enable_buttons()
+        {
+            var westButton=document.getElementById("west_button");
+            westButton.disabled="";
+            var eastButton=document.getElementById("east_button");
+            eastButton.disabled="";
+            var northButton=document.getElementById("north_button");
+            northButton.disabled="";
+            var southButton=document.getElementById("south_button");
+            southButton.disabled="";
+            //copy
+        }
+        
+        function locationMessages()
+        {
+            //display locations
+            if(currentLocation == 0)
+            {
+                var message = "You are outside of the Tardis with the 10th Doctor. You are his faithful companion but are surrounded by alien enemies!";
+                updateDisplay(message);
+            }
+            else if(currentLocation == 1)
+            {
+                var message = "You are facing a spaceship full of Daleks!!!";
+                updateDisplay(message);
+            }
+            else if(currentLocation == 2)
+            {
+                var message = "An Army of cybermen!!!";
+                updateDisplay(message);    
+            }
+            else if(currentLocation == 3)
+            {
+                var message = "The Ponds are leaving!!!";
+                updateDisplay(message);
+            }  
+            else if(currentLocation == 4)
+            {
+                var message = "A Time Hole!!!";
+                updateDisplay(message);
+            }  
+            else if(currentLocation == 5)
+            {
+                var message = "Space Station";
+                updateDisplay(message);
+            }    
+        }
+              
+       function btn_north_click () {      
+          //var msg="You are facing a spaceship full of Daleks!!!";
+          //updateText(msg);
+          processLocation("north");
+          //if (north===false){		
+            // score = score + 5;              
+            // north = true;
+          //alert(msg);
+       //}
+       }
+            
+           
+       function btn_south_click () {
+           //var msg="You are facing the Tardis door!";
+           //updateText(msg);
+           processLocation("south");
+           //if (south===false){		
+            // score = score + 5;              
+            // south = true;
+          //}
+          //alert=(msg);
+       } 
+
+       
+       function btn_east_click () {
+          //var msg="There is a blackhole!";
+          //updateText(msg);
+          processLocation("east");
+          //if (east===false){		
+            // score = score + 5;              
+            // east = true;
+          //}
+          //alert=(msg);
+       } 
+       
+       function btn_west_click() {
+          //var msg="You are facing a troop of cyberman! ";
+          //updateText(msg);
+          processLocation("west");
+          //if (west===false){
+            // score = score + 5;
+            // west = true;
+          //}
+          //alert=(msg);
+       } 
+
+       
+
+        function btn_score_click() {
+             var msg= score;
+             alert(msg);     
+       }  
+
+       
+       function updateText(msg){
+           var ta = document.getElementById("taGame");
+           ta.value = msg + "\n" + ta.value;
+       }
+
+       function updateDisplay(msg){
+           var ta = document.getElementById("taGame");
+           ta.value = msg + "\n" + ta.value;
+        }
+        
+       function checkScore()
+       {
+          var beenThere = false;
+          for(var i=0; i<locationArray.length; i++)
+          {
+            if(locationArray[i]==currentLocation)
+            {
+                beenThere = true;
+                i += 100;
+            }
+          }
+          if(beenThere == false)
+          {
+              score += 5;
+              locationArray.push(currentLocation);
+          }
+       }
+       
+      </script>
+  </head>
+  <body>
+      Doctor Who Text Adventure Games 
+      <br>
+      <textarea id="taGame" rows="8" cols="50">You are outside of the Tardis with the 10th Doctor. 
+
+You are his faithful companion but are surrounded by alien enemies!</textarea>
+
+      
+      
+      <br>
+        <input type ="button" 
+             value="North"
+             id = "north_button" 
+             onclick="btn_north_click ();"> 
+      
+        <input type ="button" 
+             value="south"
+             id = "south_button" 
+             onclick="btn_south_click();">
+
+        <input type ="button" 
+             value="east"
+             id = "east_button" 
+             onclick="btn_east_click();">
+
+        <input type ="button" 
+             value="west"
+             id = "west_button" 
+             onclick="btn_west_click();">
+              
+        <input type= "button";
+             value="points"
+             onclick="btn_score_click();">
+        
+        <br>
+        <input type= "text" id="input">    
+        <input type= "button";
+             value="Go"
+             onclick="btn_go_click();">
+
+
+
+      <br>  
+       <a href= "mailto:jackelyn.trivino@gmail.com" style="color: #000000">E-mail Link</a>
+    
+      
+      <br>
+      <a href="http://validator.w3.org/#validate_by_input" style="color: #000000">Validate</a>
+
+    </body>
+ </html>
