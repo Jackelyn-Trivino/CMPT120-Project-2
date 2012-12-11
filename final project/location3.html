@@ -1,0 +1,147 @@
+        1	+//location
+	2	+
+	3	+            
+	4	+            
+	5	+
+	6	+
+	7	+
+	8	+
+	9	+
+	10	+                /*  function location0 () {
+	11	+                updateDisplay("You are outside of the Tardis with the 10th Doctor. You are his faithful companion but are surrounded by alien                                                  enemies!");
+	12	+            }
+	13	+            function location1 () {
+	14	+                updateDisplay("You are facing a spaceship full of Daleks!!!");
+	15	+                if (!playerhassonicscrewdriver) {
+	16	+                updateDisplay("There is an sonic screwdriver here.");
+	17	+                updateDisplay("You take the sonic screwdriver.");
+	18	+                playerhassonicscrewdriver = true;
+	19	+            } else {
+	20	+            updateDisplay("There is nothing on the floor.");
+	21	+               }
+	22	+            }
+	23	+            function location2 () {
+	24	+                updateDisplay("The master has returned");    
+	25	+            }
+	26	+            function location3 () {
+	27	+                updateDisplay("The Ponds are leaving");
+	28	+            }  
+	29	+            function location4 () {
+	30	+                updateDisplay("A time Hole");
+	31	+            }  
+	32	+            function location5 () {
+	33	+                updateDisplay("A spaceShip");
+	34	+            } 
+	35	+            function location6 () {
+	36	+                updateDisplay("Mind controlled by the silence");    
+	37	+            }  
+	38	+            function location7 () {
+	39	+                updateDisplay("River is trapped by a weeping angel");
+	40	+                if (!playerhasphysicsbox) {
+	41	+                updateDisplay("There is a physics box here.");
+	42	+                updateDisplay("You take the physics box.");
+	43	+                playerhasphysicsbox = true;
+	44	+            } else {
+	45	+            updateDisplay("you notice a physics box behind the angel");
+	46	+               }    
+	47	+            }
+	48	+            function location8 () {
+	49	+                updateDisplay("You're at BAD Wolf bay!!!");
+	50	+            }
+	51	+            function location9 () {
+	52	+                updateDisplay("Rose disappeared into another parellel world!");    
+	53	+              
+	54	+            }
+	55	+
+	56	+        */
+	57	+
+	58	+
+	59	+
+	60	+var loc=new array();
+	61	+
+	62	+loc[0]= new location();
+	63	+loc[0].id= 0;
+	64	+loc[0].name= location0;
+	65	+loc[0].description="You are outside of the Tardis with the 10th Doctor. You are his faithful companion but are surrounded by alien enemies!";
+	66	+
+	67	+loc[1]= new location();
+	68	+loc[1].id= 1;
+	69	+loc[1].name= location1;
+	70	+loc[1].description= "You are facing a spaceship full of Daleks!!!"
+	71	+loc[1].item= new item();
+	72	+loc[1].item.id= 1;
+	73	+loc[1].item.name= "sonic screwdriver";
+	74	+loc[1].item.description= "Use the sonic screwdriver to zap the daleks back to their isolated planet";
+	75	+
+	76	+
+	77	+loc[2]= new location();
+	78	+loc[2].id= 2;
+	79	+loc[2].name= location2;
+	80	+loc[2].description="The master has returned";
+	81	+
+	82	+
+	83	+loc[3]= new location();
+	84	+loc[3].id= 3;
+	85	+loc[3].name= location3;
+	86	+loc[3].description="The Ponds are leaving";
+	87	+loc[3].item= new item();
+	88	+loc[3].item.id= 2;
+	89	+loc[3].item.name= "fez";
+	90	+loc[3].item.description= "fez is not actually useful but very stylish!";
+	91	+
+	92	+loc[4]= new location();
+	93	+loc[4].id= 4;
+	94	+loc[4].name= location4;
+	95	+loc[4].description="A time Hole";
+	96	+
+	97	+loc[5]= new location();
+	98	+loc[5].id= 5;
+	99	+loc[5].name= location5;
+	100	+loc[5].description="A spaceShip";
+	101	+
+	102	+loc[6]= new location();
+	103	+loc[6].id= 6;
+	104	+loc[6].name= location6;
+	105	+loc[6].description="Mind controlled by the silence";
+	106	+
+	107	+loc[7]= new location();
+	108	+loc[7].id= 7;
+	109	+loc[7].name= location7;
+	110	+loc[7].description="River is trapped by a weeping angel";
+	111	+loc[7].item= new item();
+	112	+loc[7].item.id= 3;
+	113	+loc[7].item.name= "physics paper";
+	114	+loc[7].item.description= "Can help you sneak your way into places having people think you're someone you're not!";
+	115	+
+	116	+
+	117	+loc[8]= new location();
+	118	+loc[8].id= 8;
+	119	+loc[8].name= location8;
+	120	+loc[8].description="You're at BAD Wolf bay!!!";
+	121	+
+	122	+loc[9]= new location();
+	123	+loc[9].id= 9;
+	124	+loc[9].name= location0;
+	125	+loc[9].description="Rose disappeared into another parellel world!";
+	126	+loc[9].item= new item();
+	127	+loc[9].item.id= 4;
+	128	+loc[9].item.name= "bowtie";
+	129	+loc[9].item.description= "You found your bowtie! THE UNIVERSE IS SAVED!";
+	130	+
+	131	+function location() {
+	132	+   this.name      = "";
+	133	+   this.id        = 0;
+	134	+   this.description = 0;
+	135	+   this.toString  = function();
+	136	+ }
+	137	+
+	138	+function item() {
+	139	+   this.name      = "";
+	140	+   this.id        = 0;
+	141	+   this.description = 0;
+	142	+   this.toString  = function();
+	143	+ }
+	144	+
+	145	+
+	146	+
+	

@@ -1,0 +1,36 @@
+1	+//
+2	+// game2.js
+3	+//
+4	+
+5	+var playerhassonicscrewdriver = false;
+6	+var playerHasphysicsbox = false;
+7	+
+8	+var movecount = 0
+9	+
+10	+
+11	+function init(){
+12	+//call the starting location
+13	+  location0();
+14	+}
+15	+
+16	+function displayInventory() {
+17	+/* var msg = "Inventory: ";
+18	+ if (playerHasphysicsbox) {
+19	+  msg = msg + "Physics Box";
+20	+ }
+21	+ if (playerHassonicscrewdriver) {
+22	+ msg = msg + "Sonic Screwdriver";
+23	+*/
+24	+var index;
+25	+for(index in inventory)
+26	+{
+27	+	msg += inventory[index].name;
+28	+}
+29	+}
+30	+updateDisplay(msg);
+31	+}
+32	+
+33	+
+var inventory= new array();
+var itemCount = 0;
+
